@@ -16,7 +16,7 @@ x_test = pd.read_csv("./test_encode.csv", header=None).values
 y_test = pd.read_csv("./test_label.csv", header=None).values
 
 # get the dataset
-inp_size = 28*28 # size of mnist dataset 
+inp_size = 768 # size of mnist dataset 
 n_classes = 5
 
 y_train = keras.utils.to_categorical(y_train, n_classes)
@@ -25,7 +25,7 @@ y_test  = keras.utils.to_categorical(y_test,  n_classes)
 # only select 100 training samples 
 idxs_annot = range(x_train.shape[0])
 random.seed(0)
-idxs_annot = np.random.choice(x_train.shape[0], 10000)
+idxs_annot = np.random.choice(x_train.shape[0], 1000)
 
 x_train_unlabeled = x_train
 x_train_labeled   = x_train[idxs_annot]
